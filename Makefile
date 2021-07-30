@@ -1,4 +1,4 @@
-.PHONY: fmt lint test build clean test_all
+.PHONY: fmt lint build install
 
 .DEFAULT: help
 help:
@@ -6,7 +6,6 @@ help:
 	@echo "lint          : run golangci-lint"
 	@echo "build         : run go build"
 	@echo "install       : install the dependence"
-	@echo "clean         : remove the bin"
 
 fmt:
 	@gofmt -d -w -e .
@@ -20,7 +19,4 @@ install:
 	@go mod download
 
 build:
-	@go build -v -o ${BIN} *.go
-
-clean:
-	@git clean -fdx ${BIN} ${DIST_DIR}
+	@go build -v *.go
