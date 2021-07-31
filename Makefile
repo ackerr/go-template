@@ -2,18 +2,16 @@
 
 .DEFAULT: help
 help:
-	@echo "fmt           : run gofmt"
-	@echo "lint          : run golangci-lint"
-	@echo "build         : run go build"
-	@echo "install       : install the dependence"
+	@echo "fmt        :run gofmt"
+	@echo "lint       :run golangci-lint"
+	@echo "build      :run go build"
+	@echo "install    :install the dependence"
 
 fmt:
-	@gofmt -d -w -e .
+	@golangci-lint run --fix
 
 lint:
-	@go vet ./...
-	@go mod tidy
-	@golangci-lint run --fix
+	@golangci-lint run
 
 install:
 	@go mod download

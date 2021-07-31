@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 func main() {
-	println("Generate template")
+	fmt.Println("Go Template")
 }
